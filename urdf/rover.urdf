@@ -1,2 +1,99 @@
-<!-- Simple two wheeled tank drive Rover with Lidar Sensor and Camera Model -->
+<?xml version="1.0" ?><!-- Simple 4 wheeled tank drive Rover with Lidar Sensor and Camera Model -->
+<robot name="rover">
+
+    <!-- Base Link -->
+
+    <link name="base_link">
+
+        <visual>
+            <geometry>
+                <box size="0.8 0.7 0.1"/>
+            </geometry>
+            <material name="black">
+                <color rgba=".1 0.1 0.1 1"/>
+            </material>
+        </visual>
+
+        <inertial>
+            <mass value="2"/>
+            <inertia ixx="0.04" ixy="0" ixz="0" iyy="0.17" iyz="0" izz="0.25"/>
+        </inertial>
+
+        <collision>
+            <geometry>
+                <box size="0.8 0.7 0.1"/>
+            </geometry>
+        </collision>\
+    </link>
+
+    <!-- End Base Link -->
+
+    <!-- Left Rear Wheel Link -->
+
+    <joint name="wheel_rear_left_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel_rear_left"/>
+        <origin xyz="0.25 -0.4 0" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name = "wheel_rear_left">
+        <inertial>
+            <mass value="2"/>
+            <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+        </inertial>
+
+        <visual>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficients mu="1" kp="1e+13" kd="1"/>
+        </collision>
+    </link>
+
+    <!-- End Left Rear Wheel Link -->
+    
+    <!-- Right Front Wheel Link -->
+
+    <joint name="wheel_front_right_joint" type="continuous">
+        <parent link="base_link"/>
+        <child link="wheel_front_right"/>
+        <origin xyz="0.25 0.4 0" rpy="1.57 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name = "wheel_front_right">
+        <inertial>
+            <mass value="2"/>
+            <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3"/>
+        </inertial>
+
+        <visual>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficients mu="1" kp="1e+13" kd="1"/>
+        </collision>
+    </link>
+
+    <!-- End Right Front Wheel Link -->
+
+    </robot>
+
 
