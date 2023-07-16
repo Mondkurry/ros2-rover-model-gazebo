@@ -28,7 +28,7 @@
 
     <!-- End Base Link -->
 
-    <!-- Left Rear Wheel Link -->
+    <!-- Left Front Wheel Link -->
 
     <joint name="wheel_rear_left_joint" type="continuous">
         <parent link="base_link"/>
@@ -59,14 +59,15 @@
         </collision>
     </link>
 
-    <!-- End Left Rear Wheel Link -->
-    
+    <!-- End Left Front Wheel Link -->
+
     <!-- Right Front Wheel Link -->
 
     <joint name="wheel_front_right_joint" type="continuous">
         <parent link="base_link"/>
         <child link="wheel_front_right"/>
         <origin xyz="0.25 0.4 0" rpy="1.57 0 0"/>
+        <!-- rpy is roll pitch yaw.. so how the origin needs to be rotated.. 1.57 is 90 degrees when converted to radian -->
         <axis xyz="0 0 1"/>
     </joint>
 
@@ -94,6 +95,8 @@
 
     <!-- End Right Front Wheel Link -->
 
-    </robot>
+
+
+</robot>
 
 
