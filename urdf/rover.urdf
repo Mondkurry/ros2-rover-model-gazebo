@@ -1,6 +1,13 @@
 <?xml version="1.0" ?><!-- Simple 4 wheeled tank drive Rover with Lidar Sensor and Camera Model -->
 <robot name="rover">
+    <!-- colors
 
+<color rgba="0.145 0.19 0.19 1"/>
+<color rgba="0.19 0.34 0.35 1"/>
+<color rgba="0.965, 0.847, 0.682 1"/>	
+<color rgba="0.922 0.729 0.725 1"/>
+<color rgba=".494, .659, .745 1"/>
+ -->
     <!-- Base Link -->
 
     <link name="base_link">
@@ -9,8 +16,8 @@
             <geometry>
                 <box size="0.8 0.7 0.1"/>
             </geometry>
-            <material name="black">
-                <color rgba=".1 0.1 0.1 1"/>
+            <material>
+                <color rgba="0.145 0.19 0.19 1"/>
             </material>
         </visual>
 
@@ -47,7 +54,8 @@
             <geometry>
                 <cylinder radius="0.15" length="0.1"/>
             </geometry>
-            <material name="white">
+            <material>
+                <color rgba=".494, .659, .745 1"/>
             </material>
         </visual>
 
@@ -82,6 +90,7 @@
                 <cylinder radius="0.15" length="0.1"/>
             </geometry>
             <material name="white">
+                <color rgba=".494, .659, .745 1"/>
             </material>
         </visual>
 
@@ -95,6 +104,140 @@
 
     <!-- End Right Front Wheel Link -->
 
+    <!-- Right Rear Wheel-->
+
+    <joint name="wheel_back_right_joint" type="continuous">
+        <origin xyz="-0.25 0.4 0.0" rpy="1.57 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="wheel_back_right"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+
+    <link name="wheel_back_right">
+        <inertial>
+            <mass value="2" />
+            <inertia ixx="1e-3" ixy="0.0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
+        </inertial>
+
+        <visual>
+
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+                <color rgba=".494, .659, .745 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficients mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+    <!-- End Right Rear Wheel -->
+
+    <!-- Left Rear Wheel-->
+
+    <joint name="wheel_back_left_joint" type="continuous">
+        <origin xyz="-0.25 -0.4 0.0" rpy="1.57 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="wheel_back_left"/>
+        <axis xyz="0.0 0.0 1.0"/>
+
+    </joint>
+
+    <link name="wheel_back_left">
+        <inertial>
+            <mass value="2" />
+            <inertia ixx="1e-3" ixy="0.0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
+        </inertial>
+
+        <visual>
+
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <material name="white">
+                <color rgba=".494, .659, .745 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.15" length="0.1"/>
+            </geometry>
+            <contact_coefficients mu="1" kp="1e+13" kd="1.0"/>
+        </collision>
+    </link>
+
+    <!-- End Left Rear Wheel -->
+
+    <!-- Camera -->
+
+    <joint name="camera_joint" type="fixed">
+        <origin xyz="-0.35 0 0.15" rpy="0 0.0 3.14"/>
+        <parent link="base_link"/>
+        <child link="camera"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+
+    <link name="camera">
+        <inertial>
+            <mass value="0.5" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+        </inertial>
+
+        <visual>
+            <geometry>
+                <box size="0.1 0.5 0.2"/>
+            </geometry>
+
+            <material>
+                <color rgba="0.965, 0.847, 0.682 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <box size="0.1 0.5 0.2"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- End Camera -->
+
+    <!-- Lidar -->
+    <joint name="lidar_joint" type="fixed">
+        <origin xyz="-0.43 0 0.0" rpy="0 0.0 1.57"/>
+        <parent link="base_link"/>
+        <child link="lidar"/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
+
+    <link name="lidar">
+        <inertial>
+            <mass value="0.5" />
+            <inertia ixx="0.01" ixy="0.0" ixz="0" iyy="0.01" iyz="0" izz="0.01" />
+        </inertial>
+
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.1"/>
+            </geometry>
+            <material name="red">
+                <color rgba="0.965, 0.847, 0.682 1"/>
+            </material>
+        </visual>
+
+        <collision>
+            <geometry>
+                <cylinder radius="0.1" length="0.1"/>
+            </geometry>
+        </collision>
+    </link>
 
 
 </robot>
