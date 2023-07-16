@@ -11,9 +11,9 @@ setup(
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
-        (os.path.join('share', package_name), glob('launch/*.py'))      # Add path for launch file
-        (os.path.join('share', package_name), glob('urdf/*.py'))        # Add path for urdf
+        ('share/' + package_name, ['package.xml']), 
+        (os.path.join('share', package_name), glob('launch/*.py')),     # Add path for launch file .. MAKE SURE TO ADD COMMAS AFTER EACH LINE
+        (os.path.join('share', package_name), glob('urdf/*')),          # Add path for urdf .. MAKE SURE TO ADD COMMAS AFTER EACH LINE
     ],
     install_requires=['setuptools'],
     zip_safe=True,
