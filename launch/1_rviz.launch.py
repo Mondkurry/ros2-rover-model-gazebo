@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     package_dir = get_package_share_directory('rover')
-    urdf = os.path.join(package_dir, '1_rover.urdf')
+    urdf = os.path.join(package_dir, 'rover_joint.urdf')
     
     return LaunchDescription([
         Node(
