@@ -2,7 +2,7 @@
 <robot name="rover">
 
     <!-- Base Link -->
-  <link name="chassis">
+  <link name="base_link">
     <visual>
       <geometry>
           <box size=".8 0.7 0.1"/>
@@ -53,17 +53,17 @@
 
   <joint name="wheel_front_right_joint" type="continuous">
     <origin xyz="0.25 0.4 0.0" rpy="1.57 0.0 0.0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="wheel_front_right"/>
     <axis xyz="0.0 0.0 1.0"/>
   </joint>
 
   <link name="wheel_front_left">
-    <inertial>
+    <!-- <inertial>
             <mass value="2" />
             <inertia ixx="1e-3" ixy="0.0" ixz="0" 
             iyy="1e-3" iyz="0" izz="1e-3" />
-    </inertial>
+    </inertial> -->
 
     <visual>
       
@@ -85,7 +85,7 @@
 
   <joint name="wheel_front_left_joint" type="continuous">
     <origin xyz="0.25 -0.4 0.0" rpy="1.57 0.0 0.0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="wheel_front_left"/>
     <axis xyz="0.0 0.0 1.0"/>
 
@@ -118,7 +118,7 @@
 
   <joint name="wheel_back_right_joint" type="continuous">
     <origin xyz="-0.25 0.4 0.0" rpy="1.57 0.0 0.0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="wheel_back_right"/>
     <axis xyz="0.0 0.0 1.0"/>
 
@@ -151,7 +151,7 @@
 
   <joint name="wheel_back_left_joint" type="continuous">
     <origin xyz="-0.25 -0.4 0.0" rpy="1.57 0.0 0.0"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="wheel_back_left"/>
     <axis xyz="0.0 0.0 1.0"/>
 
@@ -183,7 +183,7 @@
 
   <joint name="camera_joint" type="fixed">
     <origin xyz="-0.35 0 0.15" rpy="0 0.0 3.14"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="camera"/>
     <axis xyz="0.0 0.0 1.0"/>
 
@@ -214,8 +214,9 @@
 
   <joint name="lidar_joint" type="fixed">
     <origin xyz="-0.43 0 0.0" rpy="0 0.0 1.57"/>
-    <parent link="chassis"/>
+    <parent link="base_link"/>
     <child link="lidar"/>
     <axis xyz="0.0 0.0 1.0"/>
 
   </joint>
+</robot>
