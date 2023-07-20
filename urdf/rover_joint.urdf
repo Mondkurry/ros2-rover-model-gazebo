@@ -298,7 +298,7 @@
         </noise>
       </ray>
     </sensor>
-    <material>Gazebo/Orange</material>
+    <material>Gazebo/DarkGrey</material>
   </gazebo>
 
   <gazebo reference="wheel_back_right">
