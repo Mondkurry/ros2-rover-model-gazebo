@@ -225,17 +225,12 @@
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
       <publish_wheel_tf>true</publish_wheel_tf>
-
       <odometry_frame>base_footprint</odometry_frame>
       <robot_base_frame>chassis</robot_base_frame>
 
     </plugin>
   </gazebo>
 
-
-
-
-  <!-- CAMERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
   <gazebo reference="camera">
     <sensor type="camera" name="camera1">
       <update_rate>30.0</update_rate>
@@ -268,7 +263,8 @@
     </sensor>
     <material>Gazebo/Blue</material>
   </gazebo>
-  <!-- LIDAAAAAAAAAAAAAAAAAAAAAAAAAAR -->
+
+
   <gazebo reference="lidar">
     <sensor name="gazebo_lidar" type="ray">
       <visualize>true</visualize>
@@ -302,6 +298,26 @@
         </noise>
       </ray>
     </sensor>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="wheel_back_right">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel_back_left">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel_front_right">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="wheel_front_left">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="base_link">
     <material>Gazebo/DarkGrey</material>
   </gazebo>
 
